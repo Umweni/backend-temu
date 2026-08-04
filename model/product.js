@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-    productId:{
+    id:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product",
         
@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema({
     },
     discount_percentage:{
         type: Number,
-        required: false
+        required: true
     },
     discount_price:{
         type: Number,
@@ -32,19 +32,19 @@ const productSchema = new mongoose.Schema({
     },
     discounted_total:{
         type: Number,
-        required: false
+        required: true
     },
     total_product:{
         type: Number,
-        required: true
+        required: false
     },
     total_quantity:{
         type: Number,
-        required: true
+        required: false
     },
     rating:{
         type: Number,
-        required: true
+        required: false
     },
     image:{
         type: String,
