@@ -15,7 +15,7 @@ const upload = multer({ dest: "uploads/" });
 // get all products
 router.get("/fetch-all", async (req, res) => {
     try {
-        const product = await product.find().sort({ createdAt: -1 });
+        const product = await Product.find().sort({ createdAt: -1 });
         return res.status(200).send({status: "ok", msg: "success", data: product});
     }
     catch(err) {
