@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
 // create a new product
 router.post("/add-product", upload.single("image"), async (req, res) => {
     
-        const { id, title, price, quantity, total, discount_percentage, discount_price, discounted_total, total_product, total_quantity, rating, image, image_id } = req.body;
+        const { title, price, quantity, total, discount_percentage, discount_price, discounted_total, total_product, total_quantity, rating, image, image_id } = req.body;
         if ( !title || !price || !quantity  || !rating) {
             return res.status(400).send({status: "error", msg: "Missing required fields"});
         }
