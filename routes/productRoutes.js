@@ -24,6 +24,22 @@ router.get("/fetch-all", async (req, res) => {
     }
 });
 
+// Get single product
+router.get('/:id', async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).send({ status: 'error', msg: 'Product not found' });
+    }
+    return res.status(200).send({ status: 'ok', msg: 'success', data: product });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).send({ status: 'error', msg: 'some error occurred', error: e.message });
+  }
+});
+
+
+
 // create a new product
 router.post("/add-product", upload.single("image"), async (req, res) => {
     
